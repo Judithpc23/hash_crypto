@@ -37,14 +37,15 @@ def hash_check(start, end, result_queue, stop_event):
             # Comprueba si el hash resultante coincide con el hash objetivo
             if H.hexdigest() == config.pwd:
                 # Si coincide, coloca un mensaje en la cola de resultados indicando que se encontró la contraseña
-                result_queue.put(f"Found: {password.strip()} at position {start+index} with pepper {pepper}")
+                result_queue.put(f"Found: {password.strip()} at position {start+index+1} with pepper {pepper+1}")
                 # Activa el evento de parada para detener otros procesos
                 stop_event.set()
                 # Salir de la función después de encontrar la contraseña
                 return
             else:
-                # Si no coincide, imprime un mensaje indicando que la contraseña con el pepper actual ha sido verificada
-                print(f"position {start+index}")
+                pass
+                # # Si no coincide, imprime un mensaje indicando que la contraseña con el pepper actual ha sido verificada
+                # print(f"position {start+index}")
 
     # Si no se encuentra la contraseña en el rango dado, coloca un mensaje en la cola de resultados
     result_queue.put("Not found in the provided range.")

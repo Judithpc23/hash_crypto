@@ -1,3 +1,16 @@
+import pandas as pd
+
+#Ruta de los datos de usuarios
+path = 'password_database_ED2.xlsx'
+
+#Carga de los datos
+data = pd.read_excel(path)
+
+#Función para buscar y capturar los datos
+def search_user(username:str, data:'pd.DataFrame' = data):
+    list_data = data.loc[data['username'] == username].iloc[0]
+    return list_data.tolist()
+
 # Configuración de parámetros para la búsqueda de cada usuario.
 
 # >>>>>>>>>>>>> Configuración de parámetros para la búsqueda de cada usuario. <<<<<<<<<<<<
@@ -6,15 +19,16 @@
 # username, salt, pwd = ['edadul','465589f0b3c7c73cab54ada02c1c9589','9181591f2dc3a4ab5c547a8b0380c3c158ce116c735db8e33dca4fb22df117834812514fad6412091e88d933712b99231026648de1fdc953e3a7275637329576']
 # username, salt, pwd = ['adballesteros', 'afac6ca30d8850e9477f47c4b7bc822b', 'ac24caa8b39b7c4f521ce057f4f7e04dce7c2bea3a80ebcf642ce836db6ef743c4316401aa3f9762e6bc92b9af26908b30308b4af80231934494582562b0aa00']
 
-# Sal utilizada para fortalecer la contraseña antes de hashearla
-salt = '465589f0b3c7c73cab54ada02c1c9589'
 
+#Usuario buscado
+username = ''
+# Salt utilizada para fortalecer la contraseña antes de hashearla
+salt = ''
 # Hash objetivo de la contraseña que se busca en el archivo
-pwd = '9181591f2dc3a4ab5c547a8b0380c3c158ce116c735db8e33dca4fb22df117834812514fad6412091e88d933712b99231026648de1fdc953e3a7275637329576'
+pwd = ''
 
 # Ruta del archivo de contraseñas a ser analizado.
 file_path = "rockyou.txt"
 
 # Número de procesos que se utilizarán para realizar la búsqueda en paralelo
 num_workers = 10
-
