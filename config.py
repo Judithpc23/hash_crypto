@@ -8,8 +8,10 @@ data = pd.read_excel(path)
 
 #Función para buscar y capturar los datos
 def search_user(username:str, data:'pd.DataFrame' = data):
-    list_data = data.loc[data['username'] == username].iloc[0]
-    return list_data.tolist()
+    list_data = data.loc[data['username'] == username]
+    if list_data.empty:
+        return []
+    return list_data.iloc[0].tolist()
 
 # Configuración de parámetros para la búsqueda de cada usuario.
 

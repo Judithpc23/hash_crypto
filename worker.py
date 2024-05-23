@@ -45,7 +45,7 @@ def hash_check(start, end, result_queue, stop_event):
             else:
                 pass
                 # # Si no coincide, imprime un mensaje indicando que la contraseña con el pepper actual ha sido verificada
-                # print(f"position {start+index}")
+                #print(f"Position: {start+index}")
 
     # Si no se encuentra la contraseña en el rango dado, coloca un mensaje en la cola de resultados
     result_queue.put("Not found in the provided range.")

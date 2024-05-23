@@ -58,9 +58,9 @@ def main():
 
 # Punto de entrada del script
 if __name__ == '__main__':
-    user = str(input('Ingrese el nombre de usuario: '))
+    user = str(input('Write the username to search: '))
     if config.search_user(user) == []:
-        print('Usuario no encontrado')
+        print('Username no found, please try again.')
     else:
         config.username, config.salt, config.pwd = config.search_user(user)
         print(f'Looking for password for user {config.username}.')
